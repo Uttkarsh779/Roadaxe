@@ -6,6 +6,7 @@
 !backend/
 !README.md
 !.gitignore
+!deploy.sh
 
 # Standard ignores
 .DS_Store
