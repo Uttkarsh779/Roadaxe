@@ -5,9 +5,11 @@ set -e
 
 echo "🚀 Starting RoadX Deployment..."
 
+export DEBIAN_FRONTEND=noninteractive
+
 # 1. Update and Install Dependencies
 echo "📦 Updating system and installing dependencies..."
-apt-get update
+apt-get update -y || true
 apt-get install -y curl git nginx build-essential
 
 # 2. Install Node.js 20
