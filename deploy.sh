@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Exit on error
-set -e
+# Ignore errors
+set +e
 
 echo "🚀 Starting RoadX Deployment..."
 
