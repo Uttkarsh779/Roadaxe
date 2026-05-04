@@ -20,7 +20,7 @@ media/
 static/
 roadx/
 template/
-public/
+# public/ (Removed because it blocks frontend/src/pages/public)
 dash/
 dealership/
 main/
