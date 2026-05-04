@@ -1,0 +1,30 @@
+# Ignore everything
+/*
+
+# Except these
+!frontend/
+!backend/
+!README.md
+!.gitignore
+
+# Standard ignores
+.DS_Store
+Thumbs.db
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.sqlite3
+media/
+static/
+roadx/
+template/
+public/
+dash/
+dealership/
+main/
+django_dump.json
+audit_report.json
+tmp/
+passenger_wsgi.py
+manage.py

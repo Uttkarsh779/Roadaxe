@@ -1,0 +1,93 @@
+.logo-slider {
+    overflow: hidden;
+    padding: 60px 0;
+    background: #ffffff; /* Pure white to match logo backgrounds */
+    white-space: nowrap;
+    position: relative;
+}
+
+.logo-slider:before,
+.logo-slider:after {
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-slider:before {
+    left: 0;
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logo-slider:after {
+    right: 0;
+    background: linear-gradient(to left, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logo-slide-track {
+    display: flex;
+    width: calc(300px * 42); /* Increased width for larger logos */
+    animation: scroll 50s linear infinite;
+    align-items: center;
+}
+
+.logo-slide {
+    width: 300px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.logo-slide img {
+    height: 70px; /* Bigger logos */
+    width: auto;
+    max-width: 220px;
+    filter: brightness(1); /* Keep colors natural but subtle */
+    transition: all 0.5s ease;
+    opacity: 0.8;
+}
+
+.logo-slide img:hover {
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 21));
+    }
+}
+
+.logo-slider:hover .logo-slide-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .logo-slider {
+        padding: 40px 0;
+    }
+    .logo-slide {
+        width: 200px;
+        height: 80px;
+        padding: 0 15px;
+    }
+    .logo-slide img {
+        height: 50px;
+        max-width: 150px;
+    }
+    .logo-slide-track {
+        width: calc(200px * 42);
+    }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-200px * 21)); }
+    }
+}

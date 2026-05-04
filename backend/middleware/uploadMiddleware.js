@@ -1,0 +1,30 @@
+const multer = require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../utils/cloudinary');
+const path = require('path');
+const AppError = require('../utils/appError');
+
+// Set storage engine
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: async (req, file) => {
+    // Determine the resource type based on file extension
+    const isDocument = /\.(pdf|doc|docx)$/i.test(file.originalname);
+    return {
+      folder: 'roadx',
+      format: undefined, // Let cloudinary handle the format from the original file
+      public_id: `${file.fieldname}-${Date.now()}`,
+      resource_type: isDocument ? 'raw' : 'auto' // Use auto for images/video, raw for docs
+    };
+  }
+});
+
+
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+});
+
+module.exports = upload;
