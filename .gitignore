@@ -16,8 +16,8 @@ node_modules/
 venv/
 __pycache__/
 *.sqlite3
-media/
-static/
+# media/
+# static/
 roadx/
 template/
 # public/ (Removed because it blocks frontend/src/pages/public)
