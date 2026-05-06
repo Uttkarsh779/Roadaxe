@@ -32,7 +32,7 @@ const Checkout = () => {
     window.scrollTo(0, 0);
   }, [product, navigate]);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL ?? '';
 
   const states = [
     "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", 

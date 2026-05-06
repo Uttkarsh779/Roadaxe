@@ -12,7 +12,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const API_URL = import.meta.env.VITE_API_URL ?? '';
         const res = await axios.get(`${API_URL}/api/public/products`);
         setProducts(res.data.data.products);
         setLoading(false);

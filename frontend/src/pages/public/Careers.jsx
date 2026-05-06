@@ -14,7 +14,7 @@ const Careers = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('');
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL ?? '';
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleFileChange = (e) => setResume(e.target.files[0]);

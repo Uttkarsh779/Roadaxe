@@ -19,7 +19,7 @@ const AdminTestimonials = () => {
   const [imageFile, setImageFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL ?? '';
 
   useEffect(() => {
     fetchTestimonials();

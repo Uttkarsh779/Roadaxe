@@ -5,7 +5,7 @@ import { getImageUrl, handleImageError } from '../../utils/imageHelper';
 
 const About = () => {
   const [team, setTeam] = useState([]);
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL ?? '';
 
   useEffect(() => {
     axios.get(`${API_URL}/api/public/team`).then(res => setTeam(res.data.data.team));
