@@ -18,13 +18,13 @@ const ProductCard = ({ product }) => {
       <div className="product-card-info">
         <h5 style={{ color: '#008000' }}>{product.subcategory}</h5>
         <h3 style={{ color: '#008000' }}>{product.name}</h3>
-        <h5>₹ {product.actual_price}</h5>
-        <Link 
-          to={`/product/${product._id}`} 
-          className="btn btn-success" 
+        {/* <h5>₹ {product.actual_price}</h5> */}
+        <Link
+          to={`/product/${product._id}`}
+          className="btn btn-success"
           style={{ width: '100%', backgroundColor: '#008000', borderColor: '#008000' }}
         >
-          Book Now!
+          Enquire Now
         </Link>
       </div>
     </div>

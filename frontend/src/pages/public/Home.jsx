@@ -79,10 +79,10 @@ const Home = () => {
         smartSpeed: 500,
         dots: true,
         loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
+        nav: true,
+        navText: [
+          '<i class="bi bi-arrow-left"></i>',
+          '<i class="bi bi-arrow-right"></i>'
         ],
       });
     }
@@ -98,13 +98,13 @@ const Home = () => {
         dots: false,
         loop: true,
         margin: 25,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-right"></i>',
-            '<i class="fa fa-angle-left"></i>'
+        nav: true,
+        navText: [
+          '<i class="fa fa-angle-right"></i>',
+          '<i class="fa fa-angle-left"></i>'
         ],
         responsiveClass: true,
-        responsive: { 0:{items:1}, 576:{items:1}, 768:{items:2}, 992:{items:2}, 1200:{items:3} }
+        responsive: { 0: { items: 1 }, 576: { items: 1 }, 768: { items: 2 }, 992: { items: 2 }, 1200: { items: 3 } }
       });
     }
   }, [products]);
@@ -118,13 +118,13 @@ const Home = () => {
         dots: false,
         loop: true,
         margin: 25,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-right"></i>',
-            '<i class="fa fa-angle-left"></i>'
+        nav: true,
+        navText: [
+          '<i class="fa fa-angle-right"></i>',
+          '<i class="fa fa-angle-left"></i>'
         ],
         responsiveClass: true,
-        responsive: { 0:{items:1}, 576:{items:1}, 768:{items:2}, 992:{items:2}, 1200:{items:3} }
+        responsive: { 0: { items: 1 }, 576: { items: 1 }, 768: { items: 2 }, 992: { items: 2 }, 1200: { items: 3 } }
       });
     }
   }, [articles]);
@@ -138,13 +138,13 @@ const Home = () => {
         dots: true,
         loop: true,
         margin: 25,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-right"></i>',
-            '<i class="fa fa-angle-left"></i>'
+        nav: true,
+        navText: [
+          '<i class="fa fa-angle-right"></i>',
+          '<i class="fa fa-angle-left"></i>'
         ],
         responsiveClass: true,
-        responsive: { 0:{items:1}, 576:{items:1}, 768:{items:2}, 992:{items:2}, 1200:{items:3} }
+        responsive: { 0: { items: 1 }, 576: { items: 1 }, 768: { items: 2 }, 992: { items: 2 }, 1200: { items: 3 } }
       });
     }
   }, [testimonials]);
@@ -179,10 +179,10 @@ const Home = () => {
                     <h1 className="display-4 text-uppercase text-white mb-4">Leading Electric Mobility in India</h1>
                     <p className="mb-5 fs-5">India's Premier Manufacturer of Electric Vehicles</p>
                     <div className="d-flex justify-content-center flex-shrink-0 mb-4">
-                      <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
+                      {/* <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
                         <i className="fas fa-download me-2"></i>Download Brochure
                       </a>
-                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a>
+                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a> */}
                     </div>
                   </div>
                 </div>
@@ -201,10 +201,10 @@ const Home = () => {
                     <h2 className="display-4 text-uppercase text-white mb-4">Leading Electric Mobility in India</h2>
                     <p className="mb-5 fs-5">India's Premier Manufacturer of Electric Vehicles</p>
                     <div className="d-flex justify-content-center flex-shrink-0 mb-4">
-                      <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
+                      {/* <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
                         <i className="fas fa-download me-2"></i>Download Brochure
                       </a>
-                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a>
+                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a> */}
                     </div>
                   </div>
                 </div>
@@ -223,10 +223,10 @@ const Home = () => {
                     <h2 className="display-4 text-uppercase text-white mb-4">Leading Electric Mobility in India</h2>
                     <p className="mb-5 fs-5">India's Premier Manufacturer of Electric Vehicles</p>
                     <div className="d-flex justify-content-center flex-shrink-0 mb-4">
-                      <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
+                      {/* <a className="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="/static/assets/main/RoadX_Products_Broucher.pdf" download>
                         <i className="fas fa-download me-2"></i>Download Brochure
                       </a>
-                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a>
+                      <a className="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#contactid">Contact Us</a> */}
                     </div>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ const Home = () => {
                       <i className="fas fa-phone-alt fa-2x text-primary me-4"></i>
                       <div>
                         <h4>Call Us</h4>
-                        <p className="mb-0 fs-5" style={{ letterSpacing: '1px' }}>+91 9403890774</p>
+                        <p className="mb-0 fs-5" style={{ letterSpacing: '1px' }}>+91 9583553382</p>
                       </div>
                     </div>
                   </div>
@@ -434,7 +434,7 @@ const Home = () => {
       {/* Blog End */}
 
       {/* FAQs Start */}
-      <div className="container-fluid faq-section py-5">
+      {/* <div className="container-fluid faq-section py-5">
         <div className="container py-5 overflow-hidden">
           <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px' }}>
             <h4 className="text-primary">FAQs</h4>
@@ -489,12 +489,12 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* FAQs End */}
 
       {/* Team Start */}
       <div className="container-fluid team pb-5">
-        <div className="container pb-5">
+        <div className="container pb-5 ">
           <div className="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style={{ maxWidth: '800px' }}>
             <h4 className="text-primary">Our Team</h4>
             <h2 className="display-5 mb-4">Meet Our Talented Team</h2>
@@ -540,13 +540,13 @@ const Home = () => {
         <div className="logo-slider mt-4">
           <div className="logo-slide-track">
             {/* First set of logos */}
-            {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21].map(num => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(num => (
               <div className="logo-slide" key={`logo1-${num}`}>
                 <img src={getImageUrl(`/static/assets/main/img/logos/${num}.webp`)} alt={`Client ${num}`} onError={handleImageError} />
               </div>
             ))}
             {/* Duplicate set of logos for infinite loop */}
-            {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21].map(num => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(num => (
               <div className="logo-slide" key={`logo2-${num}`}>
                 <img src={getImageUrl(`/static/assets/main/img/logos/${num}.webp`)} alt={`Client ${num}`} onError={handleImageError} />
               </div>
@@ -639,7 +639,7 @@ const Home = () => {
                         </div>
                         <div>
                           <h4>Mail Us</h4>
-                          <p className="mb-0">roadx@roadx.in</p>
+                          <p className="mb-0">sales@roadaxe.in</p>
                         </div>
                       </div>
                     </div>

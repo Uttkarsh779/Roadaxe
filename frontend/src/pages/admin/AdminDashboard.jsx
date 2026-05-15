@@ -88,6 +88,21 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
+      <div className="col-12 col-lg-3 col-md-6">
+        <div className="card shadow-sm" style={{ borderLeft: '3px solid #4a6cf7' }}>
+          <div className="card-body px-3 py-4-5">
+            <div className="row">
+              <div className="col-md-4">
+                <div className="stats-icon purple mb-2"><i className="bi bi-chat-square-text-fill text-white"></i></div>
+              </div>
+              <div className="col-md-8">
+                <h6 className="text-dark font-semibold">Product Enquiries</h6>
+                <h6 className="font-extrabold mb-0">{stats.productEnquiries ?? '0'}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

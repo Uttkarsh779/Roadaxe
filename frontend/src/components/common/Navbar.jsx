@@ -32,8 +32,8 @@ const Navbar = () => {
               <a href="tel:+919583553382" className="text-muted small me-4">
                 <i className="fas fa-phone-alt text-primary me-2"></i>+91 9583553382
               </a>
-              <a href="mailto:roadx@roadx.in" className="text-muted small me-0">
-                <i className="fas fa-envelope text-primary me-2"></i>roadx@roadx.in
+              <a href="mailto:sales@roadaxe.in" className="text-muted small me-0">
+                <i className="fas fa-envelope text-primary me-2"></i> sales@roadaxe.in
               </a>
             </div>
           </div>
@@ -95,9 +95,12 @@ const Navbar = () => {
                   <Link to="/products" className="dropdown-item">View All Products</Link>
                 </div>
               </div>
-              <Link to="/dealership" className="nav-item nav-link">Join Dealership</Link>
+              <Link to="/faq" className="nav-item nav-link">FAQ</Link>
+
+              {/* <Link to="/dealership" className="nav-item nav-link">Join Dealership</Link> */}
               <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
             </div>
+
             <a href="/static/assets/main/RoadX_Products_Broucher.pdf" download className="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">
               Download Brochure
             </a>

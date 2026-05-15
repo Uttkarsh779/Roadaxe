@@ -2,17 +2,19 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
+import EnquiryModal from '../../components/ui/EnquiryModal';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
-  
+
   const [product, setProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [showEnquiry, setShowEnquiry] = useState(false);
 
   const API_URL = import.meta.env.VITE_API_URL ?? '';
 
@@ -21,6 +23,7 @@ const ProductDetail = () => {
       setLoading(true);
       try {
         const res = await axios.get(`${API_URL}/api/public/products/${id}`);
+        console.log("PRODUCT DATA:", res.data.data.product);
         setProduct(res.data.data.product);
         setSimilarProducts(res.data.data.similarProducts);
         setLoading(false);
@@ -44,11 +47,7 @@ const ProductDetail = () => {
 
   const handleBookNow = (e) => {
     e.preventDefault();
-    if (!user) {
-      navigate('/login', { state: { from: `/product/${id}`, quantity } });
-    } else {
-      navigate('/checkout', { state: { product, quantity } });
-    }
+    setShowEnquiry(true);
   };
 
   const getImageUrl = (img) => {
@@ -107,11 +106,11 @@ const ProductDetail = () => {
             <aside className="col-lg-6">
               <div className="border rounded-4 mb-3 d-flex justify-content-center bg-white">
                 <a className="rounded-4" target="_blank" rel="noreferrer" href={getImageUrl(product.image)}>
-                  <img 
-                    style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }} 
-                    className="rounded-4 fit" 
-                    src={getImageUrl(product.image)} 
-                    alt={product.name} 
+                  <img
+                    style={{ maxWidth: '100%', maxHeight: '100vh', margin: 'auto' }}
+                    className="rounded-4 fit"
+                    src={getImageUrl(product.image)}
+                    alt={product.name}
                   />
                 </a>
               </div>
@@ -136,10 +135,10 @@ const ProductDetail = () => {
                   </span>
                 </div>
 
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <span className="h5">₹ {product.actual_price}</span>
                   <span className="text-muted">/Per Unit</span>
-                </div>
+                </div> */}
 
                 <p>{product.meta_description}</p>
 
@@ -195,20 +194,67 @@ const ProductDetail = () => {
                   <div className="d-flex align-items-center mb-4">
                     <div className="input-group" style={{ width: '150px' }}>
                       <button type="button" className="btn btn-outline-secondary" onClick={() => handleQuantityChange(-1)}>-</button>
-                      <input 
-                        type="number" 
-                        className="form-control text-center" 
-                        value={quantity} 
-                        readOnly 
+                      <input
+                        type="number"
+                        className="form-control text-center"
+                        value={quantity}
+                        readOnly
                       />
                       <button type="button" className="btn btn-outline-secondary" onClick={() => handleQuantityChange(1)}>+</button>
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-primary w-100 py-3">
-                    <i className="me-1 fa fa-shopping-basket"></i>
-                    Book Now for ₹ {product.booking_price || '5000'}
-                  </button>
+                  <div className='d-flex flex-column flex-md-row gap-3 mt-4'>
+                    <button
+                      type="button"
+                      className="btn flex-fill py-3"
+                      onClick={handleBookNow}
+                      style={{ 
+                        background: 'linear-gradient(135deg,#1a1a2e 0%,#16213e 100%)', 
+                        color: '#fff', 
+                        border: 'none', 
+                        fontWeight: 700, 
+                        fontSize: '15px', 
+                        borderRadius: '12px',
+                        boxShadow: '0 4px 15px rgba(26,26,46,0.2)',
+                        transition: 'transform 0.2s, box-shadow 0.2s'
+                      }}
+                      onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(26,26,46,0.3)'; }}
+                      onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 15px rgba(26,26,46,0.2)'; }}
+                    >
+                      <i className="fas fa-envelope me-2"></i>Enquire Now
+                    </button>
+                    
+                    {product.brochure && (
+                      <a
+                        href={product.brochure}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn flex-fill py-3"
+                        style={{ 
+                          background: '#fff', 
+                          color: '#1a1a2e', 
+                          border: '2px solid #1a1a2e', 
+                          fontWeight: 700, 
+                          fontSize: '15px', 
+                          borderRadius: '12px',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={e => { e.currentTarget.style.background = '#f8f9fa'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                        onMouseOut={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                      >
+                        <i className="fas fa-file-pdf me-2"></i>Brochure
+                      </a>
+                    )}
+                  </div>
                 </form>
+
+                {/* Enquiry Modal */}
+                {showEnquiry && (
+                  <EnquiryModal
+                    product={product}
+                    onClose={() => setShowEnquiry(false)}
+                  />
+                )}
               </div>
             </main>
           </div>
@@ -225,7 +271,7 @@ const ProductDetail = () => {
                     <p className="mt-2">{product.description}</p>
                     <table className="table border mt-3 mb-2">
                       <tbody>
-                        {[1,2,3,4,5,6,7,8,9,10].map(i => {
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => {
                           const spec = product[`spec${i}`];
                           const ans = product[`spec${i}ans`];
                           if (!spec || spec.trim() === '') return null;
@@ -242,7 +288,7 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            
+
             <aside className="col-lg-4">
               <div className="border rounded-2 bg-white shadow-sm">
                 <div className="card-body p-3">
@@ -250,10 +296,10 @@ const ProductDetail = () => {
                   {similarProducts.length > 0 ? similarProducts.map((item) => (
                     <div key={item._id} className="d-flex mb-3 align-items-center">
                       <Link to={`/product/${item._id}`} className="me-3">
-                        <img 
-                          src={getImageUrl(item.image)} 
-                          style={{ minWidth: '96px', height: '96px' }} 
-                          className="img-md img-thumbnail" 
+                        <img
+                          src={getImageUrl(item.image)}
+                          style={{ minWidth: '96px', height: '96px' }}
+                          className="img-md img-thumbnail"
                           alt={item.name}
                         />
                       </Link>
@@ -261,7 +307,7 @@ const ProductDetail = () => {
                         <Link to={`/product/${item._id}`} className="nav-link p-0 mb-1 text-primary">
                           {item.name}
                         </Link>
-                        <strong className="text-dark">₹ {item.actual_price}</strong>
+                        {/* <strong className="text-dark">₹ {item.actual_price}</strong> */}
                       </div>
                     </div>
                   )) : (

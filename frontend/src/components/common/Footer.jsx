@@ -5,14 +5,14 @@ const Footer = () => {
   return (
     <>
       {/* Footer Start */}
-      <div className="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+      <div className="container-fluid footer py-2 wow fadeIn" data-wow-delay="0.2s">
         <div className="container py-5 border-start-0 border-end-0" style={{ border: '1px solid', borderColor: 'rgb(255, 255, 255, 0.08)' }}>
           <div className="row g-5">
             <div className="col-md-6 col-lg-6 col-xl-4">
               <div className="footer-item">
-                <div className="glass-background">
+                <div className="">
                   <Link to="/" className="p-0">
-                    <img src={getImageUrl('/static/assets/main/Logo.webp')} style={{ height: '100px' }} alt="Road Axe Motors Pvt Ltd" />
+                    <img src={getImageUrl('/static/assets/main/Logo.webp')} style={{ height: '150px' }} alt="Road Axe Motors Pvt Ltd" />
                   </Link>
                 </div>
                 <p className="mb-4 text-white">
@@ -52,7 +52,7 @@ const Footer = () => {
                 </div>
                 <div className="d-flex align-items-center">
                   <i className="fas fa-envelope text-primary me-3"></i>
-                  <p className="text-white mb-0">roadx@roadx.in</p>
+                  <p className="text-white mb-0">sales@roadaxe.in</p>
                 </div>
                 <div className="d-flex align-items-center">
                   <i className="fa fa-phone-alt text-primary me-3"></i>
@@ -79,14 +79,14 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer End */}
-      
+
       {/* Copyright Start */}
       <div className="container-fluid copyright py-4">
         <div className="container">
           <div className="row g-4 align-items-center">
             <div className="col-md-6 text-center text-md-start mb-md-0">
               <span className="text-body">
-                <a href="https://roadx.in" className="border-bottom text-white"><i className="fas fa-copyright text-light me-2"></i>roadx.in</a>, All right reserved.
+                <a href="https://roadaxe.in" className="border-bottom text-white"><i className="fas fa-copyright text-light me-2"></i>roadaxe.in</a>, All right reserved.
               </span>
             </div>
             <div className="col-md-6 text-center text-md-end text-body">

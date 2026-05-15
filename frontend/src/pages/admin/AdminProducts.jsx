@@ -36,6 +36,7 @@ const AdminProducts = () => {
     spec8: '', spec8ans: '',
     spec9: '', spec9ans: '',
     spec10: '', spec10ans: '',
+    brochure: '',
   });
 
   const [files, setFiles] = useState({
@@ -46,6 +47,7 @@ const AdminProducts = () => {
     highlight_4_icon: null,
     highlight_5_icon: null,
     highlight_6_icon: null,
+    brochure: null,
   });
 
   const API_URL = import.meta.env.VITE_API_URL ?? '';
@@ -89,10 +91,10 @@ const AdminProducts = () => {
       meta_title: '', meta_description: '', meta_keywords: '',
       highlight_1: '', highlight_2: '', highlight_3: '', highlight_4: '', highlight_5: '', highlight_6: '',
       spec1: '', spec1ans: '', spec2: '', spec2ans: '', spec3: '', spec3ans: '', spec4: '', spec4ans: '', spec5: '', spec5ans: '',
-      spec6: '', spec6ans: '', spec7: '', spec7ans: '', spec8: '', spec8ans: '', spec9: '', spec9ans: '', spec10: '', spec10ans: '',
+      spec6: '', spec6ans: '', spec7: '', spec7ans: '', spec8: '', spec8ans: '', spec9: '', spec9ans: '', spec10: '', spec10ans: '', brochure: '',
     });
     setFiles({
-      image: null, highlight_1_icon: null, highlight_2_icon: null, highlight_3_icon: null, highlight_4_icon: null, highlight_5_icon: null, highlight_6_icon: null,
+      image: null, highlight_1_icon: null, highlight_2_icon: null, highlight_3_icon: null, highlight_4_icon: null, highlight_5_icon: null, highlight_6_icon: null, brochure: null,
     });
     setEditingId(null);
     setShowForm(false);
@@ -199,8 +201,11 @@ const AdminProducts = () => {
                   <input type="number" name="booking_price" className="form-control" value={formData.booking_price} onChange={handleInputChange} required />
                 </div>
                 <div className="col-md-6 mb-3">
-                  <label className="form-label">Main Image</label>
                   <input type="file" name="image" className="form-control" onChange={handleFileChange} accept="image/*" />
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label className="form-label">Product Brochure (PDF)</label>
+                  <input type="file" name="brochure" className="form-control" onChange={handleFileChange} accept=".pdf" />
                 </div>
 
                 <div className="col-12 mb-3">
@@ -264,14 +269,15 @@ const AdminProducts = () => {
                     <th>Name</th>
                     <th>Category</th>
                     <th>Price</th>
+                    <th>Brochure</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {loading ? (
-                    <tr><td colSpan="5" className="text-center">Loading...</td></tr>
+                    <tr><td colSpan="6" className="text-center">Loading...</td></tr>
                   ) : products.length === 0 ? (
-                    <tr><td colSpan="5" className="text-center">No products found.</td></tr>
+                    <tr><td colSpan="6" className="text-center">No products found.</td></tr>
                   ) : products.map(p => (
                     <tr key={p._id}>
                       <td>
@@ -286,6 +292,13 @@ const AdminProducts = () => {
                       <td className="fw-bold">{p.name}</td>
                       <td><span className="badge bg-light text-dark border">{p.category}</span></td>
                       <td>₹ {p.actual_price}</td>
+                      <td>
+                        {p.brochure ? (
+                          <span className="badge bg-success">PDF</span>
+                        ) : (
+                          <span className="badge bg-secondary">None</span>
+                        )}
+                      </td>
                       <td>
                         <button className="btn btn-sm btn-outline-primary me-2" onClick={() => startEdit(p)}>
                           <i className="bi bi-pencil"></i>

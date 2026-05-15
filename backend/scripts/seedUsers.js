@@ -1,56 +1,49 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const User = require('../models/User');
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../.env') });
+
+dotenv.config({ path: '../.env' });
 
 const seedUsers = async () => {
   try {
-    if (!process.env.MONGO_URI) {
-      console.error("MONGO_URI is missing from .env");
-      process.exit(1);
-    }
-    
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('Connected to MongoDB...');
-    
-    // Clean up invalid legacy users to allow index syncing
-    await User.collection.deleteMany({ email: { $exists: false } });
-    await User.collection.deleteMany({ email: null });
+    const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/roadx';
+    await mongoose.connect(mongoUri);
+    console.log('Connected to DB');
 
-    // Drop any old indexes (like username or phone) that are no longer in the schema
-    await User.syncIndexes();
-
-    const testUsers = [
-      {
-        name: 'Admin User',
-        email: 'admin@roadx.in',
-        password: 'Admin@123',
+    const admin = await User.findOne({ email: 'admin@roadaxe.in' });
+    if (!admin) {
+      await User.create({
+        name: 'Admin',
+        email: 'admin@roadaxe.in',
+        password: 'ROADAXEadmin@#2026',
         role: 'admin'
-      },
-      {
-        name: 'Dealer User',
-        email: 'dealer@roadx.in',
-        password: 'Dealer@123',
-        role: 'dealer'
-      },
-      {
-        name: 'Customer User',
-        email: 'user@roadx.in',
-        password: 'User@123',
-        role: 'user'
-      }
-    ];
-
-    for (const u of testUsers) {
-      await User.deleteOne({ email: u.email });
-      await User.create(u); // Triggers the pre-save hook that hashes the password with bcrypt
-      console.log(`User created/updated: ${u.role} (${u.email})`);
+      });
+      console.log('Admin user created');
+    } else {
+      admin.password = 'ROADAXEadmin@#2026';
+      await admin.save();
+      console.log('Admin user updated');
     }
 
-    console.log('Test users seeded successfully!');
+    const sales = await User.findOne({ email: 'sales@roadaxe.in' });
+    if (!sales) {
+      await User.create({
+        name: 'Sales',
+        email: 'sales@roadaxe.in',
+        password: 'ROADAXEsales@#2026',
+        role: 'admin' // or 'sales' if you have a sales role, but currently enum is ['user', 'dealer', 'admin']
+      });
+      console.log('Sales user created');
+    } else {
+      sales.password = 'ROADAXEsales@#2026';
+      await sales.save();
+      console.log('Sales user updated');
+    }
+
+    console.log('Users seeded successfully');
     process.exit(0);
   } catch (err) {
-    console.error('Seeding error:', err);
+    console.error(err);
     process.exit(1);
   }
 };

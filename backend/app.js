@@ -14,6 +14,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const dealerRoutes = require('./routes/dealerRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const formRoutes = require('./routes/formRoutes');
+const enquiryRoutes = require('./routes/enquiryRoutes');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/dealer', dealerRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/forms', formRoutes);
+app.use('/api/enquiry', enquiryRoutes);
 
 // Unhandled Route
 app.use((req, res, next) => {

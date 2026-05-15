@@ -21,6 +21,7 @@ const AdminLayout = () => {
     { label: 'Testimonials', icon: 'bi-chat-left-quote', link: '/dash/testimonials' },
     { label: 'Employees', icon: 'bi-person-badge', link: '/dash/employee' },
     { label: 'Enquiries', icon: 'bi-envelope', link: '/dash/enquiries' },
+    { label: 'Product Enquiries', icon: 'bi-chat-square-text-fill', link: '/dash/product-enquiries' },
     { label: 'Orders', icon: 'bi-box', link: '/dash/customerorders' },
     { label: 'Dealership Enquiry', icon: 'bi-shop', link: '/dash/dealershipenquires' },
     { label: 'Career Applications', icon: 'bi-briefcase', link: '/dash/career' },

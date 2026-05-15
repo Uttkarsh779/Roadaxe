@@ -6,6 +6,7 @@ const Employee = require('../models/Employee');
 const Order = require('../models/Order');
 const DealershipOrder = require('../models/DealershipOrder');
 const Enquiry = require('../models/Enquiry');
+const ProductEnquiry = require('../models/ProductEnquiry');
 const DealershipRequest = require('../models/DealershipRequest');
 const JobApplication = require('../models/JobApplication');
 const User = require('../models/User');
@@ -15,11 +16,12 @@ const { deleteFromCloudinary } = require('../utils/cloudinaryCleanup');
 
 // ─── DASHBOARD STATS ────────────────────────────────────────────────────────────
 exports.getStats = catchAsync(async (req, res, next) => {
-  const [products, orders, enquiries, dealers] = await Promise.all([
+  const [products, orders, enquiries, dealers, productEnquiries] = await Promise.all([
     Product.countDocuments(),
     Order.countDocuments(),
     Enquiry.countDocuments(),
-    User.countDocuments({ role: 'dealer' })
+    User.countDocuments({ role: 'dealer' }),
+    ProductEnquiry.countDocuments(),
   ]);
 
   res.status(200).json({
@@ -28,7 +30,8 @@ exports.getStats = catchAsync(async (req, res, next) => {
       products,
       orders,
       enquiries,
-      dealers
+      dealers,
+      productEnquiries,
     }
   });
 });
@@ -61,7 +64,7 @@ exports.deleteCategory = catchAsync(async (req, res, next) => {
 // ─── PRODUCTS ────────────────────────────────────────────────────────────────────
 const handleProductImages = (req) => {
   if (req.files) {
-    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon'];
+    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon', 'brochure'];
     fields.forEach(field => {
       if (req.files[field]) {
         const file = req.files[field][0];
@@ -81,7 +84,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   
   const oldProduct = await Product.findById(req.params.id);
   if (oldProduct) {
-    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon'];
+    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon', 'brochure'];
     for (const field of fields) {
       if (req.body[field] && oldProduct[field]) {
         await deleteFromCloudinary(oldProduct[field]);
@@ -96,7 +99,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 exports.deleteProduct = catchAsync(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
   if (product) {
-    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon'];
+    const fields = ['image', 'highlight_1_icon', 'highlight_2_icon', 'highlight_3_icon', 'highlight_4_icon', 'highlight_5_icon', 'highlight_6_icon', 'brochure'];
     for (const field of fields) {
       if (product[field]) await deleteFromCloudinary(product[field]);
     }

@@ -14,7 +14,7 @@ const sendEmail = async (options) => {
 
   // 2) Define the email options
   const mailOptions = {
-    from: `RoadX <${process.env.EMAIL_USER || 'jim@revarion.com'}>`,
+    from: `Roadaxe <${process.env.EMAIL_USER || 'jim@revarion.com'}>`,
     to: options.email,
     subject: options.subject,
     text: options.message,

@@ -1,6 +1,7 @@
 const express = require('express');
 const adminController = require('../controllers/adminController');
 const orderController = require('../controllers/orderController');
+const enquiryController = require('../controllers/enquiryController');
 const authMiddleware = require('../middleware/authMiddleware');
 const upload = require('../middleware/uploadMiddleware');
 
@@ -28,7 +29,8 @@ const productUploads = upload.fields([
   { name: 'highlight_3_icon', maxCount: 1 },
   { name: 'highlight_4_icon', maxCount: 1 },
   { name: 'highlight_5_icon', maxCount: 1 },
-  { name: 'highlight_6_icon', maxCount: 1 }
+  { name: 'highlight_6_icon', maxCount: 1 },
+  { name: 'brochure', maxCount: 1 }
 ]);
 
 router.route('/products')
@@ -76,5 +78,10 @@ router.delete('/dealership-enquiries/:id', adminController.deleteDealershipEnqui
 // ─── Career Applications ─────────────────────────────────────────────────────────
 router.get('/career-applications', adminController.getAllCareerApplications);       // AdminCareers.jsx
 router.delete('/career-applications/:id', adminController.deleteCareerApplication);
+
+// ─── Product Enquiries (from EnquiryModal) ───────────────────────────────────
+router.get('/product-enquiries', enquiryController.getAllProductEnquiries);
+router.patch('/product-enquiries/:id/status', enquiryController.updateProductEnquiryStatus);
+router.delete('/product-enquiries/:id', enquiryController.deleteProductEnquiry);
 
 module.exports = router;

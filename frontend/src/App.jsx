@@ -37,6 +37,7 @@ import AdminEmployees from './pages/admin/AdminEmployees';
 import AdminTestimonials from './pages/admin/AdminTestimonials';
 import AdminDealerEnquiries from './pages/admin/AdminDealerEnquiries';
 import AdminCareers from './pages/admin/AdminCareers';
+import AdminProductEnquiries from './pages/admin/AdminProductEnquiries';
 
 // Dealer
 import DealerLayout from './components/dealer/DealerLayout';
@@ -106,6 +107,7 @@ function App() {
             <Route path="testimonials" element={<AdminTestimonials />} />
             <Route path="customerorders" element={<AdminOrders />} />
             <Route path="enquiries" element={<AdminEnquiries />} />
+            <Route path="product-enquiries" element={<AdminProductEnquiries />} />
             <Route path="dealershipenquires" element={<AdminDealerEnquiries />} />
             <Route path="career" element={<AdminCareers />} />
             <Route path="invoice/:orderId" element={<Invoice />} />

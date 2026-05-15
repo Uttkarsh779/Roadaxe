@@ -48,6 +48,7 @@ const productSchema = new mongoose.Schema({
   description: { type: String, required: true },
   booking_price: { type: Number, required: true }, // Mongoose uses Number for Decimal
   actual_price: { type: Number, required: true },
+  brochure: { type: String },
 }, {
   timestamps: true
 });

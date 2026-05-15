@@ -51,10 +51,11 @@ const AdminLogin = () => {
               <label className="mb-2">Password</label>
               <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </div>
-            {error && <div className="alert alert-danger py-2">{error}</div>}
+            {error && <div className="alert alert-danger py-2 mt-3">{error}</div>}
             <button className="btn btn-primary w-100 py-2" type="submit" disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}
             </button>
+
           </form>
         </div>
       </div>
