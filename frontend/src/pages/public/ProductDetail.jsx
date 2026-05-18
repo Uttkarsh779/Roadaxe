@@ -226,7 +226,8 @@ const ProductDetail = () => {
                     
                     {product.brochure && (
                       <a
-                        href={product.brochure}
+                        href={product.brochure.includes('cloudinary.com') ? product.brochure.replace('/upload/', '/upload/fl_attachment/') : product.brochure}
+                        download={`${product.name.replace(/\s+/g, '_')}_Brochure.pdf`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn flex-fill py-3"

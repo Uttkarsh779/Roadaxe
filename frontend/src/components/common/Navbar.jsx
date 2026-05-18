@@ -71,11 +71,11 @@ const Navbar = () => {
       {/* Topbar End */}
 
       {/* Navbar Start */}
-      <div className="container-fluid position-relative p-0">
-        <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+      <div className="container-fluid position-relative p-0 " style={{ background: '#adadad' }}>
+        <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py- py-lg-0" style={{ background: '#adadad' }}>
           <div className="logo-container">
-            <Link to="/" className="navbar-brand p-0">
-              <img src={getImageUrl('/static/assets/main/Logo.webp')} className="logo" alt="Road Axe Motors Pvt Ltd" style={{ height: '100px' }} />
+            <Link to="/" className="">
+              <img src={getImageUrl('/static/assets/main/RoadAxe_WB_Horizontal.png')} className="" alt="Road Axe Motors Pvt Ltd" style={{ height: '100px' }} />
             </Link>
           </div>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

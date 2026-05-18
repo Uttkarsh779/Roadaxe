@@ -12,7 +12,7 @@ const Footer = () => {
               <div className="footer-item">
                 <div className="">
                   <Link to="/" className="p-0">
-                    <img src={getImageUrl('/static/assets/main/Logo.webp')} style={{ height: '150px' }} alt="Road Axe Motors Pvt Ltd" />
+                    <img src={getImageUrl('/static/assets/main/RoadAxe_WB_Horizontal.png')} style={{ height: '250px' }} alt="Road Axe Motors Pvt Ltd" />
                   </Link>
                 </div>
                 <p className="mb-4 text-white">

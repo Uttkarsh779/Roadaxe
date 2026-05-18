@@ -25,7 +25,7 @@ const DealerLayout = () => {
           <div className="sidebar-header">
             <div className="d-flex justify-content-between">
               <div className="logo">
-                <Link to="/"><img src={getImageUrl('/static/assets/main/Logo.webp')} alt="Road Axe" style={{ height: '90px' }} /></Link>
+                <Link to="/"><img src={getImageUrl('/static/assets/main/RoadAxe_Transparent_Horizontal.png')} alt="Road Axe" style={{ height: '70px' }} /></Link>
               </div>
             </div>
           </div>
