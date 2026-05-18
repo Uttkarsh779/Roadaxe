@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useEffect } from 'react';
 import { getImageUrl } from '../../utils/imageHelper';
+import logo from '../../assets/RoadAxe_WB_Horizontal.png';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -75,7 +76,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py- py-lg-0" style={{ background: '#adadad' }}>
           <div className="logo-container">
             <Link to="/" className="">
-              <img src={getImageUrl('/static/assets/main/RoadAxe_WB_Horizontal.png')} className="" alt="Road Axe Motors Pvt Ltd" style={{ height: '100px' }} />
+              <img src={logo} className="" alt="Road Axe Motors Pvt Ltd" style={{ height: '100px' }} />
             </Link>
           </div>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

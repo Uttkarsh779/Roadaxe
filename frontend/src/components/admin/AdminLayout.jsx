@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { getImageUrl } from '../../utils/imageHelper';
+import logo from '../../assets/RoadAxe_Transparent_Horizontal.png';
 
 const AdminLayout = () => {
   const { logout } = useAuth();
@@ -38,7 +39,7 @@ const AdminLayout = () => {
           <div className="sidebar-header">
             <div className="d-flex justify-content-between">
               <div className="logo">
-                <Link to="/"><img src={getImageUrl('/static/assets/main/RoadAxe_Transparent_Horizontal.png')} alt="Logo" style={{ height: '70px' }} /></Link>
+                <Link to="/"><img src={logo} alt="Logo" style={{ height: '70px' }} /></Link>
               </div>
             </div>
           </div>

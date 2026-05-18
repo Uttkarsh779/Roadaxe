@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '../../utils/imageHelper';
+import logo from '../../assets/RoadAxe_WB_Horizontal.png';
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
               <div className="footer-item">
                 <div className="">
                   <Link to="/" className="p-0">
-                    <img src={getImageUrl('/static/assets/main/RoadAxe_WB_Horizontal.png')} style={{ height: '250px' }} alt="Road Axe Motors Pvt Ltd" />
+                    <img src={logo} style={{ height: '250px' }} alt="Road Axe Motors Pvt Ltd" />
                   </Link>
                 </div>
                 <p className="mb-4 text-white">

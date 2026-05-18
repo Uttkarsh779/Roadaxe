@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../../assets/RoadAxe_Transparent_Horizontal.png';
 
 const Payment = () => {
   const location = useLocation();
@@ -46,7 +47,7 @@ const Payment = () => {
         currency: currency,
         name: "Road Axe Motors Pvt Ltd",
         description: `Booking for ${order.product}`,
-        image: "/static/assets/main/RoadAxe_Transparent_Horizontal.png",
+        image: logo,
         order_id: rzpOrderId,
         handler: async function (response) {
           try {
@@ -107,7 +108,7 @@ const Payment = () => {
             <div className="row mb-5">
               <div className="col-sm-4">
                 <h6 className="text-muted mb-3">From:</h6>
-                <img src="/static/assets/main/RoadAxe_Transparent_Horizontal.png" style={{ height: '40px', marginBottom: '15px' }} alt="Road Axe Motors" />
+                <img src={logo} style={{ height: '40px', marginBottom: '15px' }} alt="Road Axe Motors" />
                 <div className="fw-bold">Road Axe Motors Pvt Ltd</div>
                 <div>MIG-281, Kalinga Vihar, Patrapada</div>
                 <div>Bhubaneswar, Odisha - 751019</div>

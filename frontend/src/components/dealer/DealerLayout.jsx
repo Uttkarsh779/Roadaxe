@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { getImageUrl } from '../../utils/imageHelper';
+import logo from '../../assets/RoadAxe_Transparent_Horizontal.png';
 
 const DealerLayout = () => {
   const { logout } = useAuth();
@@ -25,7 +26,7 @@ const DealerLayout = () => {
           <div className="sidebar-header">
             <div className="d-flex justify-content-between">
               <div className="logo">
-                <Link to="/"><img src={getImageUrl('/static/assets/main/RoadAxe_Transparent_Horizontal.png')} alt="Road Axe" style={{ height: '70px' }} /></Link>
+                <Link to="/"><img src={logo} alt="Road Axe" style={{ height: '70px' }} /></Link>
               </div>
             </div>
           </div>

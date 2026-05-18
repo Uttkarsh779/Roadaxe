@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 import { getImageUrl } from '../../utils/imageHelper';
+import logo from '../../assets/RoadAxe_Transparent_Vertical.png';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ const AdminLogin = () => {
       <div className="card shadow border-0" style={{ maxWidth: '400px', width: '100%' }}>
         <div className="card-body p-5">
           <div className="text-center mb-4">
-            <img src={getImageUrl('/static/assets/main/RoadAxe_Transparent_Vertical.png')} style={{ height: '120px' }} alt="Road Axe Logo" />
+            <img src={logo} style={{ height: '120px' }} alt="Road Axe Logo" />
             <h4 className="mt-3">Road Axe Admin</h4>
           </div>
           <form onSubmit={handleSubmit}>
