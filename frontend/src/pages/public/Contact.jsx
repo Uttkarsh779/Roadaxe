@@ -35,7 +35,7 @@ const Contact = () => {
     <>
       <div className="container-fluid" style={{ height: '90px' }}></div>
       <PageHeader title="Contact Us" breadcrumb={[{ label: 'Contact', active: true }]} />
-      
+
       <div className="container-fluid contact py-5">
         <div className="container py-5">
           <div className="row g-5">
@@ -53,7 +53,7 @@ const Contact = () => {
                   <i className="fas fa-envelope fa-2x text-primary me-3"></i>
                   <div>
                     <h5>Email</h5>
-                    <p>info@roadx.com</p>
+                    <p>sales@roadaxe.in</p>
                   </div>
                 </div>
                 <div className="d-flex mb-4">
@@ -65,7 +65,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="col-xl-6">
               <div className="bg-light p-5 rounded h-100 shadow-sm">
                 <h4 className="text-primary mb-4">Send Message</h4>
