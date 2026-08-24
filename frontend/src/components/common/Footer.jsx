@@ -91,7 +91,7 @@ const Footer = () => {
               </span>
             </div>
             <div className="col-md-6 text-center text-md-end text-body">
-              Designed & Developed By <a className="border-bottom text-white" href="https://www.bigscoopstudio.com" target="_blank" rel="noreferrer">Big Scoop Studio</a>
+              Developed By <a className="border-bottom text-white" href="https://moiratech.vercel.app/" target="_blank" rel="noreferrer">Moira Technologies</a>
             </div>
           </div>
         </div>
