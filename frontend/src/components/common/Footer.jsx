@@ -91,7 +91,7 @@ const Footer = () => {
               </span>
             </div>
             <div className="col-md-6 text-center text-md-end text-body">
-              Developed By <a className="border-bottom text-white" href="https://moiratech.vercel.app/" target="_blank" rel="noreferrer">Moira Tech</a>
+               Developed & Maintained By <a className="border-bottom text-white" href="https://moiratech.vercel.app/" target="_blank" rel="noreferrer">Moira Tech</a>
             </div>
           </div>
         </div>
